@@ -1,5 +1,5 @@
 # Calcolatore Stipendio Netto
-Breve demo di web app per calcolare lo stipendio netto annuale e mensile a partire dalla RAL, con dettaglio di contributi INPS, IRPEF, addizionali regionali e comunali.  
+Breve web app demo per calcolare lo stipendio netto annuale e mensile a partire dalla RAL, con dettaglio di contributi INPS, IRPEF, addizionali regionali e comunali.  
 Realizzato in **Python 3 + Flask**, pronto per il deploy anche su Docker.
 
 ---
