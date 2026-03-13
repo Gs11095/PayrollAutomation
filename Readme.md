@@ -15,7 +15,7 @@ Realizzato in **Python 3 + Flask**, pronto per il deploy anche su Docker.
 ## Possibili scalabilità predisposte
 1. Regioni aggiuntive
 2. Comuni aggiuntivi
-3. 13 o 14 mensilità
+3. Calcolo su 13 o 14 mensilità
 
 ---
 
