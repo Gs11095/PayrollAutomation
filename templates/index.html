@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Italian Net Salary Calculator</title>
+</head>
+<body>
+
+<h1>Net Salary Calculator</h1>
+
+<!-- Form per inserire la RAL -->
+<form method="post">
+    <label for="ral">Inserisci la RAL:</label>
+    <input type="number" id="ral" name="ral" step="0.01" required>
+    <button type="submit">Calcola</button>
+</form>
+
+<!-- Mostra i risultati se esistono -->
+{% if result %}
+    <h2>Risultati</h2>
+    <ul>
+        <li>RAL: {{ result.ral }} €</li>
+        <li>INPS: {{ result.inps }} €</li>
+        <li>Reddito imponibile: {{ result.taxable_income }} €</li>
+        <li>IRPEF: {{ result.irpef }} €</li>
+        <li>Addizionale regionale: {{ result.regional_tax }} €</li>
+        <li>Addizionale comunale: {{ result.city_tax }} €</li>
+        <li>Netto annuo: {{ result.net_annual }} €</li>
+        <li>Netto mensile: {{ result.net_monthly }} €</li>
+    </ul>
+{% endif %}
+
+</body>
+</html>
