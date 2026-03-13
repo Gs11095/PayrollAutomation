@@ -18,7 +18,7 @@ def index():
         try:
             ral_float = float(cleaned_ral)
             # calcolo netto
-            result = calculate_net_salary(ral_float, region="Lombardia", city="Milano", mensilita = 12)
+            result = calculate_net_salary(ral_float, "Lombardia", "Milano", 12)
         except ValueError:
             error = "Inserisci una RAL valida!"
 
