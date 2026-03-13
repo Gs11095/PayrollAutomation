@@ -1,34 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Italian Net Salary Calculator</title>
+    <title>Calcolatore Stipendio Netto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 500px; /* box più largo */
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        p.instructions {
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input[type="number"] {
+            flex: 1;
+            padding: 12px 15px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-right: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #1e90ff; /* blu non troppo scuro */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0f70d1;
+        }
+        .result {
+            margin-top: 30px;
+            text-align: left;
+            font-size: 16px;
+        }
+        .result p {
+            margin: 6px 0;
+        }
+        .label {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Calcolatore Stipendio Netto</h1>
+        <p class="instructions">Inserisci la tua RAL e clicca su "Calcola".</p>
+        <form method="POST">
+            <input type="number" name="ral" placeholder="Inserisci RAL" step="0.01" required>
+            <button type="submit">Calcola</button>
+        </form>
 
-<h1>Net Salary Calculator</h1>
-
-<!-- Form per inserire la RAL -->
-<form method="post">
-    <label for="ral">Inserisci la RAL:</label>
-    <input type="number" id="ral" name="ral" step="0.01" required>
-    <button type="submit">Calcola</button>
-</form>
-
-<!-- Mostra i risultati se esistono -->
-{% if result %}
-    <h2>Risultati</h2>
-    <ul>
-        <li>RAL: {{ result.ral }} €</li>
-        <li>INPS: {{ result.inps }} €</li>
-        <li>Reddito imponibile: {{ result.taxable_income }} €</li>
-        <li>IRPEF: {{ result.irpef }} €</li>
-        <li>Addizionale regionale: {{ result.regional_tax }} €</li>
-        <li>Addizionale comunale: {{ result.city_tax }} €</li>
-        <li>Netto annuo: {{ result.net_annual }} €</li>
-        <li>Netto mensile: {{ result.net_monthly }} €</li>
-    </ul>
-{% endif %}
-
+        {% if result %}
+        <div class="result">
+            <p><span class="label">RAL:</span> €{{ result.ral }}</p>
+            <p><span class="label">Regione:</span> {{ result.region }}</p>
+            <p><span class="label">Città:</span> {{ result.city }}</p>
+            <hr>
+            <p><span class="label">Contributi INPS:</span> €{{ result.inps }}</p>
+            <p><span class="label">Reddito Imponibile:</span> €{{ result.taxable_income }}</p>
+            <p><span class="label">IRPEF:</span> €{{ result.irpef }}</p>
+            <p><span class="label">Addizionale Regionale:</span> €{{ result.regional_tax }}</p>
+            <p><span class="label">Addizionale Comunale:</span> €{{ result.city_tax }}</p>
+            <hr>
+            <p><span class="label">Netto Annuale:</span> €{{ result.net_annual }}</p>
+            <p><span class="label">Netto Mensile:</span> €{{ result.net_monthly }}</p>
+        </div>
+        {% endif %}
+    </div>
 </body>
 </html>

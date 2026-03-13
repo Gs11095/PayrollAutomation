@@ -13,17 +13,17 @@ IRPEF_BRACKETS = [
 ]
 
 # Scaglioni addizionale comunale Lombardia, scalabile ad altre regioni
-REGIONAL_TAX_BRACKETS = {
+REGION_TAX_BRACKETS = {
     "lombardia" : [
         (15000, 0.0123),
-        (28000, 0.0158,)
-        (50000, 0.0172)
+        (28000, 0.0158),
+        (50000, 0.0172),
         (float('inf'), 0.0173)
     ]
 }
 
 # Scaglioni per addizionale comunale Milano, scalabile ad altre citta'
-CITY_TAX_BRACKET= {
+CITY_TAX_BRACKETS= {
     "milano": [
         (23000, 0.0),       
         (float("inf"), 0.008)

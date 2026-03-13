@@ -1,6 +1,7 @@
-#  Import costanti fiscali
-
+#  Import costanti fiscali e funzioni di supporto
+from support_functions import format_italian
 from constants_tax_rules import IRPEF_BRACKETS, INPS_RATE, REGION_TAX_BRACKETS, CITY_TAX_BRACKETS
+
 # Definizione singole funzioni per calcolare breakdown fiscale
 #--------------------------------------------------------------------------------------------------------------------------------------------------
 # 1) INPS                   --> Calcola il contributo INPS del lavoratore
@@ -65,15 +66,16 @@ def calculate_net_salary(RAL:float, region:str, city:str):
     net_annual_salary = RAL - total_tax
     net_monthly_salary = net_annual_salary/12
 
-    return {
-                'ral': round(RAL,2),
-                'region': region,
-                'city': city,
-                'inps': round(inps_contributions,2),
-                'taxable_income': round(taxable_income,2),
-                'irpef': round(irpef,2),
-                'regional_tax': round(regional_tax,2),
-                'city_tax': round(city_tax,2),
-                'net_annual': round(net_annual_salary,2),
-                'net_monthly': round(net_monthly_salary,2)
-            }
+    result = {
+            'ral': format_italian(RAL),
+            'region': region,
+            'city': city,
+            'inps': format_italian(inps_contributions),
+            'taxable_income': format_italian(taxable_income),
+            'irpef': format_italian(irpef),
+            'regional_tax': format_italian(regional_tax),
+            'city_tax': format_italian(city_tax),
+            'net_annual': format_italian(net_annual_salary),
+            'net_monthly': format_italian(net_monthly_salary)
+        }
+    return result
