@@ -12,6 +12,13 @@ Realizzato in **Python 3 + Flask**, pronto per il deploy anche su Docker.
  
 ---
 
+## Possibili scalabilità predisposte
+1. Regioni aggiuntive
+2. Comuni aggiuntivi
+3. 13 o 14 mensilità
+
+---
+
 ## Funzionalità 
 Inserisci la RAL e clicca su "calcola per ottenere":
   - Contributi INPS a carico del lavoratore
@@ -20,6 +27,8 @@ Inserisci la RAL e clicca su "calcola per ottenere":
   - Addizionale regionale (solo Lombardia)
   - Addizionale comunale (solo Milano)
   - Stipendio netto annuale e mensile
+
+![Schermata d'esempio](images/screenshot.png)
 
 ---
 
@@ -31,6 +40,3 @@ Inserisci la RAL e clicca su "calcola per ottenere":
 
 ---
 
-
-
-   
