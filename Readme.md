@@ -2,6 +2,8 @@
 Breve web app demo per calcolare lo stipendio netto annuale e mensile a partire dalla RAL, con dettaglio di contributi INPS, IRPEF, addizionali regionali e comunali.  
 Realizzato in **Python 3 + Flask**, pronto per il deploy anche su Docker.
 
+Provalo a questo [link](INSERIRE LINK)!
+
 ---
 
 ## Logiche payroll semplificate 
