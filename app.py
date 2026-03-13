@@ -1,4 +1,3 @@
-import os
 from flask import Flask, render_template, request
 from net_salary_calculator import calculate_net_salary
 
@@ -7,18 +6,24 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def index():
     result = None
-    if request.method == "POST":
-        ral_input = request.form.get("ral", "0")
-        # qui puoi fare il parsing come hai già implementato
-        ral_input = ral_input.replace(".", "").replace(",", ".")
-        try:
-            ral = float(ral_input)
-            result = calculate_net_salary(ral, "Lombardia", "Milano", 12)
-        except:
-            result = {"error": "Inserisci un numero valido"}
+    error = None
 
-    return render_template("index.html", result=result)
+    if request.method == "POST":
+        raw_ral = request.form.get("ral", "").strip()
+
+        # Pulizia della stringa per gestire input italiani o inglesi
+        # es: 40.000 → 40000, 40,500 → 40.500
+        cleaned_ral = raw_ral.replace('.', '').replace(',', '.')
+        
+        try:
+            ral_float = float(cleaned_ral)
+            # calcolo netto
+            result = calculate_net_salary(ral_float, region="Lombardia", city="Milano", mensilita = 12)
+        except ValueError:
+            error = "Inserisci una RAL valida!"
+
+    return render_template("index.html", result=result, error=error)
+
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # usa la porta fornita da Render
-    app.run(host="0.0.0.0", port=port)
+    app.run(debug=True)
