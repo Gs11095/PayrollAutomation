@@ -1,10 +1,36 @@
-Regole del prototipo e altre info
+# Calcolatore Stipendio Netto
+Breve demo di web app per calcolare lo stipendio netto annuale e mensile a partire dalla RAL, con dettaglio di contributi INPS, IRPEF, addizionali regionali e comunali.  
+Realizzato in **Python 3 + Flask**, pronto per il deploy anche su Docker.
 
-1) Aggiornabile
+---
 
-    - Logo con facilità di sostituzione
-    - Testo modificabile senza toccare codice
+## Logiche payroll semplificate 
+1. Il dipendente è un impiegato a tempo indeterminato
+2. Il dipendente vive a Milano
+3. Il dipendente non ha nessun tipo di agevolazione particolare
+4. Lo stipendio mensile è calcolato su 12 mensilità
+ 
+---
+
+## Funzionalità 
+Inserisci la RAL e clicca su "calcola per ottenere":
+  - Contributi INPS a carico del lavoratore
+  - Reddito imponibile
+  - IRPEF
+  - Addizionale regionale (solo Lombardia)
+  - Addizionale comunale (solo Milano)
+  - Stipendio netto annuale e mensile
+
+---
+
+## Tecnologie
+- Python 3.11
+- Flask 3.1.3
+- Docker 
+- HTML/CSS
+
+---
 
 
-Semplifico facendo un dipendente indeterminato a milano ma prevedo la struttura per ampliare
-Semplifico a 12 mensilità ma prevedo il meccanismo da aggiornare per 13/14 se inserito in input
+
+   
