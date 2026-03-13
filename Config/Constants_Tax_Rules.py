@@ -8,6 +8,10 @@ SCAGLIONI_IRPEF = [
     (float('inf'), 0.43)
 ]
 
-CONTRIBUTIONS_PERCENT = {"employee": 0.09, "employer": 0.24}
+INPS_RATE = 0.0919
 
-REGIONAL_TAX = {"Lazio": 0.01, "Lombardia": 0.012, "Toscana": 0.009}
+REGIONAL_TAX_RATE = 0.0123
+
+CITY_TAX_RATE = 0.008
+
+ 
