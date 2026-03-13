@@ -20,7 +20,7 @@ Realizzato in **Python 3 + Flask**, pronto per il deploy anche su Docker.
 ---
 
 ## Funzionalità 
-Inserisci la RAL e clicca su "calcola per ottenere":
+Inserisci la RAL e clicca su "calcola" per ottenere:
   - Contributi INPS a carico del lavoratore
   - Reddito imponibile
   - IRPEF
