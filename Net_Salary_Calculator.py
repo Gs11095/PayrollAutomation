@@ -1,6 +1,6 @@
 #  Import costanti fiscali
 
-from Config.Constants_Tax_Rules import SCAGLIONI_IRPEF, INPS_RATE, REGIONAL_TAX_RATE, CITY_TAX_RATE
+from Constants_Tax_Rules import SCAGLIONI_IRPEF, INPS_RATE, REGIONAL_TAX_RATE, CITY_TAX_RATE
 
 
 # Definizione singole funzioni per calcolare breakdown fiscale
@@ -75,6 +75,3 @@ def calculate_net_salary(RAL:float):
                 'net_annual': net_annual_salary,
                 'net_monthly': net_monthly_salary
             }
-
-result = calculate_net_salary(40000)
-print(result)
