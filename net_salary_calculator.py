@@ -53,7 +53,7 @@ def calculate_city_tax(taxable_income:float, city):
 
 # Funzione main orchestratrice del flusso, esegue le funzioni sopra per calcolare l'intero breakdown fiscale
 
-def calculate_net_salary(RAL:float, region:str, city:str):
+def calculate_net_salary(RAL:float, region:str, city:str, mensilita:int):
     
     inps_contributions = calculate_inps(RAL)
     taxable_income = calculate_taxable_income(RAL, inps_contributions)
@@ -64,7 +64,7 @@ def calculate_net_salary(RAL:float, region:str, city:str):
     
     total_tax = (inps_contributions + regional_tax + city_tax + irpef)
     net_annual_salary = RAL - total_tax
-    net_monthly_salary = net_annual_salary/12
+    net_monthly_salary = net_annual_salary/mensilita
 
     result = {
             'ral': format_italian(RAL),

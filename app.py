@@ -13,7 +13,7 @@ def index():
         ral_input = ral_input.replace(".", "").replace(",", ".")
         try:
             ral = float(ral_input)
-            result = calculate_net_salary(ral, "lombardia", "milano")
+            result = calculate_net_salary(ral, "Lombardia", "Milano", 12)
         except:
             result = {"error": "Inserisci un numero valido"}
 
