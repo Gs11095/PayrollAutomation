@@ -19,7 +19,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             text-align: center;
-            width: 500px; /* box più largo */
+            width: 500px;
         }
         h1 {
             margin-bottom: 10px;
@@ -27,7 +27,7 @@
         p.instructions {
             margin-top: 0;
             margin-bottom: 30px;
-            font-size: 14px;
+            font-size: 15px;
             color: #555;
         }
         form {
@@ -35,7 +35,7 @@
             justify-content: center;
             align-items: center;
         }
-        input[type="number"] {
+        input[type="text"] {
             flex: 1;
             padding: 12px 15px;
             font-size: 18px;
@@ -47,7 +47,7 @@
         button {
             padding: 12px 20px;
             font-size: 16px;
-            background-color: #1e90ff; /* blu non troppo scuro */
+            background-color: #1e90ff;
             color: white;
             border: none;
             border-radius: 6px;
@@ -74,11 +74,17 @@
 <body>
     <div class="container">
         <h1>Calcolatore Stipendio Netto</h1>
-        <p class="instructions">Inserisci la tua RAL e clicca su "Calcola".</p>
+        <p class="instructions">Lavori a Milano? Inserisci la tua RAL e clicca su "Calcola"</p>
         <form method="POST">
-            <input type="number" name="ral" min="0" placeholder="Inserisci RAL" step="0.01" required>
+            <input type="text" name="ral" min="0" placeholder="Es: 40.000 / 40,000 / 40000" step="0.01" required>
             <button type="submit">Calcola</button>
         </form>
+
+        {% if result and result.error %}
+        <p style="color:red; font-weight:bold;">
+            {{ result.error }}
+        </p>
+        {% endif %}
 
         {% if result %}
         <div class="result">
