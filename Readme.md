@@ -6,8 +6,6 @@ Provalo a questo [link](https://net-salary-calculator.onrender.com)!
 
 ---
 
-# Logiche payroll 
-
 ## Semplificazioni
 1. Il dipendente è un impiegato a tempo indeterminato
 2. Il dipendente vive a Milano
