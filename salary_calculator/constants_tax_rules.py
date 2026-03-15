@@ -1,4 +1,4 @@
-#Costanti
+# Costanti
 
 # Contributi INPS a carico del lavoratore
 INPS_RATE = 0.0919

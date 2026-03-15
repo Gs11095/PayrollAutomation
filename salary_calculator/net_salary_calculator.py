@@ -7,7 +7,7 @@ from salary_calculator.employee import Employee
 #--------------------------------------------------------------------------------------------------------------------------------------------------
 # 1) INPS                   --> Calcola il contributo INPS del lavoratore
 # 2) TAXABLE INCOME         --> Calcola l'imponibile fiscale dopo contributi INPS
-# 3) IRPEF e REGIONAL TAX   --> Calcola le imposte progressive partendo dagli scaglioni. Utilizzata per IRPEF, REGIONAL TAX e CITY TAX.
+# 3) IMPOSTE PROGRESSIVE    --> Calcola le imposte progressive partendo dagli scaglioni. Utilizzata per IRPEF, REGIONAL TAX e CITY TAX.
 # 4) REGIONAL_TAX           --> Calcola l'addizionale regionale
 # 5) CITY_TAX               --> Calcola l'addizionale comunale
 # -------------------------------------------------------------------------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ def calculate_taxable_income(ral:float, inps_contributions:float)->float:
     taxable_income = ral-inps_contributions
     return taxable_income
 
-#3 IRPEF, REGIONAL TAX
+#3 IMPOSTE PROGRESSIVE
 def calculate_progressive_tax(taxable_income:float, brackets) -> float:
     
     tax = 0.0

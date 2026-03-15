@@ -9,7 +9,7 @@ import re
 def format_italian(number: float) -> str:
     if number == 0:
         return "0"
-    # separatore migliaia in inglese
+    # Separatore migliaia in inglese
     num_formattato = "{:,.2f}".format(number)
     num_formattato = num_formattato.replace(',', 'X').replace('.', ',').replace('X', '.')
 
@@ -39,7 +39,7 @@ def parse_ral(ral_input: str) -> float:
         # Se soltanto virgola
         ral_input = ral_input.replace(",", "")
     elif "." in ral_input:
-        # Se soltanto punto
+        # Se soltanto punto (capisco se e' separatore migliaia o decimali con max 2 cifre)
         parts = ral_input.split(".")
         if len(parts[-1]) == 3:
             ral_input = "".join(parts)

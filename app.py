@@ -7,7 +7,7 @@ from salary_calculator.employee import Employee
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
-def index():
+def calcola_ral():
     result = None
     error = None
 
@@ -32,7 +32,9 @@ def index():
 
     return render_template("index.html", result=result, error=error)
 
-
+# Faccio partire l'app soltanto se eseguita direttamente
+# Mi collego alla porta inserita in variabile ambiente oppure alla 5000
+# Avvio server flask accesibile da qualsiasi IP
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False)
