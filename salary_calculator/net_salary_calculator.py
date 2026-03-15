@@ -1,6 +1,7 @@
 #  Import costanti fiscali e funzioni di supporto
-from support_functions import format_italian
-from constants_tax_rules import IRPEF_BRACKETS, INPS_RATE, REGION_TAX_BRACKETS, CITY_TAX_BRACKETS
+from support_functions.parsing import format_italian
+from salary_calculator.constants_tax_rules import IRPEF_BRACKETS, INPS_RATE, REGION_TAX_BRACKETS, CITY_TAX_BRACKETS
+from salary_calculator.employee import Employee
 
 # Definizione singole funzioni per calcolare breakdown fiscale
 #--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -12,13 +13,13 @@ from constants_tax_rules import IRPEF_BRACKETS, INPS_RATE, REGION_TAX_BRACKETS, 
 # -------------------------------------------------------------------------------------------------------------------------------------------------
 
 #1 INPS 
-def calculate_inps(RAL:float)->float:
-    inps_contributions = RAL*INPS_RATE
+def calculate_inps(ral:float)->float:
+    inps_contributions = ral*INPS_RATE
     return inps_contributions
 
 #2 TAXABLE INCOME
-def calculate_taxable_income(RAL:float, inps_contributions:float)->float:
-    taxable_income = RAL-inps_contributions
+def calculate_taxable_income(ral:float, inps_contributions:float)->float:
+    taxable_income = ral-inps_contributions
     return taxable_income
 
 #3 IRPEF, REGIONAL TAX
@@ -53,21 +54,27 @@ def calculate_city_tax(taxable_income:float, city):
 
 # Funzione main orchestratrice del flusso, esegue le funzioni sopra per calcolare l'intero breakdown fiscale
 
-def calculate_net_salary(RAL:float, region:str, city:str, mensilita:int):
+def calculate_net_salary(employee):
+    # Recupero i dati passati dalla classe employee
+    ral = employee.ral
+    region = employee.region
+    city = employee.city
+    months = employee.months
+    contract_type = employee.contract_type
     
-    inps_contributions = calculate_inps(RAL)
-    taxable_income = calculate_taxable_income(RAL, inps_contributions)
+    inps_contributions = calculate_inps(ral)
+    taxable_income = calculate_taxable_income(ral, inps_contributions)
 
     regional_tax = calculate_regional_tax(taxable_income, region)
     city_tax = calculate_city_tax(taxable_income, city)
     irpef = calculate_progressive_tax(taxable_income, IRPEF_BRACKETS)
     
     total_tax = (inps_contributions + regional_tax + city_tax + irpef)
-    net_annual_salary = RAL - total_tax
-    net_monthly_salary = net_annual_salary/mensilita
+    net_annual_salary = ral - total_tax
+    net_monthly_salary = net_annual_salary/months
 
     result = {
-            'ral': format_italian(RAL),
+            'ral': format_italian(ral),
             'region': region,
             'city': city,
             'inps': format_italian(inps_contributions),

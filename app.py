@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
-from net_salary_calculator import calculate_net_salary
-from support_functions import parse_ral
+from salary_calculator.net_salary_calculator import calculate_net_salary
+from support_functions.parsing import parse_ral
 import os
+from salary_calculator.employee import Employee
 
 app = Flask(__name__)
 
@@ -19,8 +20,12 @@ def index():
            # Formatto ral
            ral_parsed = parse_ral(ral_input)
            print(ral_parsed)
+        
+           # Creo l'oggetto con soltanto la ral perche gli altri valori sono costanti della classe
+           employee = Employee(ral=ral_parsed)
+
            # Lancio funzione calcolatore
-           result = calculate_net_salary(ral_parsed, "Lombardia", "Milano", 12)
+           result = calculate_net_salary(employee)
         
         except:
             result = {"error": "Inserisci un numero valido"}
@@ -30,4 +35,4 @@ def index():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=False)

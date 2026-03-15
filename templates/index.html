@@ -19,7 +19,8 @@
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             text-align: center;
-            width: 500px;
+            width: 700px;
+            max-width: 90%;
         }
         h1 {
             margin-bottom: 10px;
@@ -69,12 +70,33 @@
         .label {
             font-weight: bold;
         }
+        .inline-disclaimer {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #555; /* grigio scuro per non attirare troppo l’attenzione */
+            line-height: 1.4em;
+            text-align: left;
+            display: inline-block;
+            max-width: 100%; /* non esce dal container */
+            white-space: nowrap; /* forza tutto su una riga */
+            overflow: hidden;
+            text-overflow: ellipsis; /* se troppo lungo si tronca con "..." */
+        }
+        .inline-disclaimer strong {
+            font-weight: bold;
+            margin-right: 6px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Calcolatore Stipendio Netto</h1>
         <p class="instructions">Lavori a Milano? Inserisci la tua RAL e clicca su "Calcola"</p>
+    <!-- Disclaimer / Semplificazioni -->
+   <div class="inline-disclaimer">
+    <strong>Semplificazioni:</strong>Dipendente a tempo indeterminato &#x2022; Vive a Milano &#x2022; Nessuna agevolazione &#x2022; Calcolo su 12 mensilità
+</div>
+
         <form method="POST">
             <input type="text" name="ral" min="0" placeholder="Es: 40.000 / 40,000 / 40000" step="0.01" required>
             <button type="submit">Calcola</button>

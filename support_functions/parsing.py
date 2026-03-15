@@ -20,11 +20,9 @@ def format_italian(number: float) -> str:
 # -------------------------------------------------------------------------------------------------------------------------------------------
 
 def parse_ral(ral_input: str) -> float:
-    if re.search(r"[.,]{2,}", ral_input):
+    if re.search(r"[.,]{2,}", ral_input) or re.search(r"[^0-9.,]", ral_input):
         raise ValueError("Formato numero non valido")
 
-    # Filtro lettere e altri simboli diversi da , e .
-    ral_input = re.sub(r"[^0-9.,]", "", ral_input)
     ral_input = ral_input.strip().replace(" ", "")
 
     if not ral_input or ral_input == "0":
