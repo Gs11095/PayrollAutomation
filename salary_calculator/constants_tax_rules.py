@@ -23,7 +23,6 @@ REGION_TAX_BRACKETS = {
 # Scaglioni per addizionale comunale Milano, scalabile ad altre citta' - FONTE: Ministero ec. e finanze 2025
 CITY_TAX_BRACKETS= {
     "Milano": [
-        (23000, 0.0),       
-        (float("inf"), 0.008)
+        (23000, 0.008)       
     ]
 }

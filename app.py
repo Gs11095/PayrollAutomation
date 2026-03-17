@@ -14,6 +14,8 @@ def calcola_ral():
     if request.method == "POST":
         
         ral_input = request.form.get("ral", "").strip()
+        #months = request.form.get("months", "").strip()
+        #months_int = int(months)
         print(ral_input)
         
         try:
@@ -22,7 +24,7 @@ def calcola_ral():
            print(ral_parsed)
         
            # Creo l'oggetto con soltanto la ral perche gli altri valori sono costanti della classe
-           employee = Employee(ral=ral_parsed)
+           employee = Employee(ral=ral_parsed) #months=months_int)
 
            # Lancio funzione calcolatore
            result = calculate_net_salary(employee)
