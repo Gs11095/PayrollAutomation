@@ -26,11 +26,13 @@ def calcola_ral():
            # Creo l'oggetto con soltanto la ral perche gli altri valori sono costanti della classe
            employee = Employee(ral=ral_parsed) #months=months_int)
 
-           # Lancio funzione calcolatore
+            # Lancio funzione calcolatore
            result = calculate_net_salary(employee)
         
         except:
             result = {"error": "Inserisci un numero valido"}
+     
+
 
     return render_template("index.html", result=result, error=error)
 

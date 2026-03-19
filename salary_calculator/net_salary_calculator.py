@@ -35,9 +35,9 @@ def calculate_progressive_tax(taxable_income:float, brackets) -> float:
             # Non contando l'eccedenza l'aliquota sara' nulla per valori minori/uguali all limite e valorizzata per valori maggiori
             if taxable_income <= limit:
                 return 0.0
-        else:
-            return taxable_income * tax_rate
-        
+            else:
+                return taxable_income * tax_rate
+            
         # Se ho piu di un bracket procedo col calcolo progressivo (Se avessi altri comuni con progressivita' anche su singola aliquota servirebbe logica per definire come tassare)
         taxable_amount = min(limit, taxable_income) - previous_limit
         if taxable_amount <= 0:
